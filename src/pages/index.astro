@@ -2,6 +2,11 @@
 import "../styles/global.css";
 import { Picture } from "astro:assets";
 import profileImg from "../images/profile.jpg";
+import theCure from "../images/the-cure.jpg";
+import theSmiths from "../images/the-smiths.jpg";
+import pinkFloyd from "../images/pink-floyd.jpg";
+import myChemicalRomance from "../images/my-chemical-romance.jpg";
+
 import { Font } from "astro:assets";
 ---
 
@@ -14,7 +19,7 @@ import { Font } from "astro:assets";
     <Font cssVariable="--font-inter" />
   </head>
   <body>
-    <section class="flex min-h-screen items-center justify-center bg-[#1d1a2f]">
+    <section class="flex min-h-screen items-center justify-center bg-[#000]">
       <div class="container mx-auto flex flex-col items-center justify-center">
         <Picture
           src={profileImg}
@@ -23,17 +28,86 @@ import { Font } from "astro:assets";
           layout="constrained"
           width={400}
           height={400}
-          class="size-38 rounded-full object-cover"
+          class="size-48 rounded-full object-cover"
         />
-        <h1 class="mt-8 text-3xl font-bold text-[#8bd450]">
+        <h1 class="mt-8 text-2xl font-bold text-[#fff]">
           guilherme eiti akita miua
         </h1>
-        <h2 class="text-lg font-medium">dev, brazilian</h2>
       </div>
     </section>
 
-    <footer class="flex h-40 items-center justify-center">
-      <h2 class="text-lg font-medium">there's a light that never goes out</h2>
+    <section
+      class="mx-auto flex min-h-screen flex-col items-center justify-center bg-[#fff] p-4 text-center"
+    >
+      <p class="text-xl font-medium text-[#000]">
+        90's kid, monster addict, who loves rock'n roll, sports, and world of
+        warcraft.
+      </p>
+    </section>
+
+    <section
+      class="mx-auto grid min-h-screen grid-cols-1 gap-1 bg-[#000] lg:grid-cols-2 lg:gap-1 lg:bg-[#fff]"
+    >
+      <Picture
+        src={theCure}
+        formats={["avif", "webp"]}
+        alt="The Cure"
+        layout="constrained"
+        class="aspect-video w-full object-cover object-top"
+      />
+      <Picture
+        src={pinkFloyd}
+        formats={["avif", "webp"]}
+        alt="Pink Floyd"
+        layout="constrained"
+        class="aspect-video w-full object-cover"
+      />
+      <Picture
+        src={myChemicalRomance}
+        formats={["avif", "webp"]}
+        alt="My Chemical Romance"
+        layout="constrained"
+        class="aspect-video w-full object-cover"
+      />
+      <Picture
+        src={theSmiths}
+        formats={["avif", "webp"]}
+        alt="The Smiths"
+        layout="constrained"
+        class="aspect-video w-full object-cover"
+      />
+    </section>
+
+    <section
+      class="flex min-h-screen items-center justify-center p-4 text-center"
+    >
+      <h2 class="text-xl font-medium italic">
+        there's a light that never goes out
+      </h2>
+    </section>
+
+    <footer class="bg-[#000] py-8 lg:py-4">
+      <ul
+        class="flex flex-col items-center justify-center gap-4 text-white lg:flex-row"
+      >
+        <li>
+          <a target="_blank" href="https://github.com/guilhermemiua">github</a>
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://www.linkedin.com/in/guilherme-eiti-akita-miua-903808187/?skipRedirect=true"
+            >linkedin</a
+          >
+        </li>
+        <li>
+          <a
+            target="_blank"
+            href="https://open.spotify.com/user/l0w9k27zzjsuzq9efd5b3iuv6?si=d72057666b124824"
+            >spotify</a
+          >
+        </li>
+      </ul>
     </footer>
   </body>
 </html>
