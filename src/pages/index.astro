@@ -1,14 +1,39 @@
 ---
 import "../styles/global.css";
+import { Picture } from "astro:assets";
+import profileImg from "../images/profile.jpg";
+import { Font } from "astro:assets";
 ---
 
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Guilherme Eiti</title>
+
+    <Font cssVariable="--font-inter" />
   </head>
   <body>
-    <h1>Hello, World!</h1>
+    <section class="flex min-h-screen items-center justify-center bg-[#1d1a2f]">
+      <div class="container mx-auto flex flex-col items-center justify-center">
+        <Picture
+          src={profileImg}
+          formats={["avif", "webp"]}
+          alt="Guilherme Eiti's profile picture"
+          layout="constrained"
+          width={400}
+          height={400}
+          class="size-38 rounded-full object-cover"
+        />
+        <h1 class="mt-8 text-3xl font-bold text-[#8bd450]">
+          guilherme eiti akita miua
+        </h1>
+        <h2 class="text-lg font-medium">dev, brazilian</h2>
+      </div>
+    </section>
+
+    <footer class="flex h-40 items-center justify-center">
+      <h2 class="text-lg font-medium">there's a light that never goes out</h2>
+    </footer>
   </body>
 </html>
