@@ -14,7 +14,7 @@ import { Font } from "astro:assets";
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Guilherme Eiti</title>
+    <title>guilherme eiti</title>
 
     <Font cssVariable="--font-inter" />
   </head>
@@ -30,7 +30,8 @@ import { Font } from "astro:assets";
           height={400}
           class="size-48 rounded-full object-cover"
         />
-        <h1 class="mt-8 text-2xl font-bold text-[#fff]">
+
+        <h1 class="mt-8 text-3xl font-bold text-[#fff]">
           guilherme eiti akita miua
         </h1>
       </div>
@@ -46,36 +47,39 @@ import { Font } from "astro:assets";
     </section>
 
     <section
-      class="mx-auto grid min-h-screen grid-cols-1 gap-1 bg-[#000] lg:grid-cols-2 lg:gap-1 lg:bg-[#fff]"
+      class="mx-auto flex min-h-screen flex-col items-center justify-center gap-8 bg-[#000] px-4 py-20 lg:px-10 lg:py-30"
     >
-      <Picture
-        src={theCure}
-        formats={["avif", "webp"]}
-        alt="The Cure"
-        layout="constrained"
-        class="aspect-video w-full object-cover object-top"
-      />
-      <Picture
-        src={pinkFloyd}
-        formats={["avif", "webp"]}
-        alt="Pink Floyd"
-        layout="constrained"
-        class="aspect-video w-full object-cover"
-      />
-      <Picture
-        src={myChemicalRomance}
-        formats={["avif", "webp"]}
-        alt="My Chemical Romance"
-        layout="constrained"
-        class="aspect-video w-full object-cover"
-      />
-      <Picture
-        src={theSmiths}
-        formats={["avif", "webp"]}
-        alt="The Smiths"
-        layout="constrained"
-        class="aspect-video w-full object-cover"
-      />
+      <h2 class="text-center text-3xl font-bold text-[#fff]">favorite bands</h2>
+      <div class="grid grid-cols-1 gap-1 lg:grid-cols-2 lg:gap-1">
+        <Picture
+          src={theCure}
+          formats={["avif", "webp"]}
+          alt="The Cure"
+          layout="constrained"
+          class="aspect-video w-full object-cover object-top"
+        />
+        <Picture
+          src={pinkFloyd}
+          formats={["avif", "webp"]}
+          alt="Pink Floyd"
+          layout="constrained"
+          class="aspect-video w-full object-cover"
+        />
+        <Picture
+          src={myChemicalRomance}
+          formats={["avif", "webp"]}
+          alt="My Chemical Romance"
+          layout="constrained"
+          class="aspect-video w-full object-cover"
+        />
+        <Picture
+          src={theSmiths}
+          formats={["avif", "webp"]}
+          alt="The Smiths"
+          layout="constrained"
+          class="aspect-video w-full object-cover"
+        />
+      </div>
     </section>
 
     <section
