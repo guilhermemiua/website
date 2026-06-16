@@ -6,6 +6,7 @@ import theCure from "../images/the-cure.jpg";
 import theSmiths from "../images/the-smiths.jpg";
 import pinkFloyd from "../images/pink-floyd.jpg";
 import myChemicalRomance from "../images/my-chemical-romance.jpg";
+import { Icon } from "astro-icon/components";
 
 import { Font } from "astro:assets";
 ---
@@ -34,6 +35,28 @@ import { Font } from "astro:assets";
         <h1 class="mt-8 text-3xl font-bold text-[#fff]">
           guilherme eiti akita miua
         </h1>
+
+        <ul class="mt-4 flex items-center justify-center gap-2">
+          <li>
+            <a href="https://github.com/guilhermemiua" target="_blank">
+              <Icon name="ph:github-logo" class="size-7 text-[#fff]" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/guilherme-eiti-akita-miua-903808187/?skipRedirect=true"
+              target="_blank"></a>
+            <Icon name="ph:linkedin-logo" class="size-7 text-[#fff]" />
+          </li>
+          <li>
+            <a
+              href="https://open.spotify.com/user/l0w9k27zzjsuzq9efd5b3iuv6?si=d72057666b124824"
+              target="_blank"
+            >
+              <Icon name="ph:spotify-logo" class="size-7 text-[#fff]" />
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
 
