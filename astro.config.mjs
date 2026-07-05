@@ -7,9 +7,8 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-  base: "/website/",
+  site: process.env.SITE ?? "https://guilhermeeiti.com",
   trailingSlash: "always",
-  site: "https://guilhermemiua.github.io",
   integrations: [icon()],
 
   vite: {
