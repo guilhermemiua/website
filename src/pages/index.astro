@@ -12,18 +12,30 @@ import { Icon } from "astro-icon/components";
 
 import { Font } from "astro:assets";
 import { LINKS } from "@constants/links";
+
+const siteUrl = Astro.site;
+const title = "guilherme eiti";
+const description = "Guilherme Eiti Akita Miua's personal website.";
+const ogImage = new URL("/og-image.jpg", siteUrl).href;
 ---
 
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Guilherme Eiti Akita Miua's personal website"
-      lang="en"
-    />
-    <title>guilherme eiti</title>
+    <meta name="description" content={description} lang="en" />
+    <title>{title}</title>
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl.href} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <Font cssVariable="--font-inter" />
   </head>
