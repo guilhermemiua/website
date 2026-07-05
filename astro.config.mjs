@@ -7,6 +7,7 @@ import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
+  output: "server",
   site: process.env.SITE ?? "https://guilhermeeiti.com",
   trailingSlash: "always",
   integrations: [icon()],
@@ -23,5 +24,7 @@ export default defineConfig({
     },
   ],
 
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: "compile",
+  }),
 });
