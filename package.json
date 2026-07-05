@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prepare": "husky",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "astro dev --port 3000",
     "build": "astro build",
@@ -33,10 +34,14 @@
     "vite": "^7.3.2"
   },
   "devDependencies": {
-    "oxlint": "^1.69.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.0.8",
     "prettier": "3.8.4",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "wrangler": "^4.107.0"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   }
 }
