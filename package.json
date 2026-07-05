@@ -8,11 +8,15 @@
     "dev": "astro dev --port 3000",
     "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "generate-types": "wrangler types"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "engines": {
+    "node": ">=24.0.0"
+  },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
@@ -22,6 +26,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@astrojs/cloudflare": "^13.7.0",
     "@astrojs/ts-plugin": "^1.10.9",
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/vite": "^4.3.0",
@@ -29,12 +34,14 @@
     "astro-icon": "^1.1.5",
     "sharp": "^0.35.1",
     "tailwind-animations": "^1.0.1",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "vite": "^7.3.2"
   },
   "devDependencies": {
     "oxlint": "^1.69.0",
     "prettier": "3.8.4",
     "prettier-plugin-astro": "0.14.1",
-    "prettier-plugin-tailwindcss": "^0.8.0"
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "wrangler": "^4.107.0"
   }
 }
