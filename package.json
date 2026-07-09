@@ -23,6 +23,7 @@
   "type": "module",
   "dependencies": {
     "@astrojs/cloudflare": "^13.7.0",
+    "@astrojs/sitemap": "^3.7.3",
     "@astrojs/ts-plugin": "^1.10.9",
     "@iconify-json/ph": "^1.2.2",
     "@tailwindcss/vite": "^4.3.0",

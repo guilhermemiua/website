@@ -1,0 +1,78 @@
+---
+import { SITE } from "@constants/site";
+import { LINKS } from "@constants/links";
+
+interface Props {
+  title: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  includeSchema?: boolean;
+}
+
+const {
+  title,
+  description = SITE.description,
+  image,
+  imageAlt = SITE.ogImageAlt,
+  imageWidth = SITE.ogImageWidth,
+  imageHeight = SITE.ogImageHeight,
+  includeSchema = true,
+} = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = image ?? new URL(SITE.ogImage, Astro.site).href;
+const siteUrl = Astro.site!.href;
+
+const sameAs = Object.values(LINKS).map((link) => link.url);
+
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: SITE.name,
+      url: siteUrl,
+    },
+    {
+      "@type": "Person",
+      name: SITE.name,
+      url: siteUrl,
+      sameAs,
+    },
+  ],
+};
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content={description} lang="en" />
+<title>{title}</title>
+
+<link rel="canonical" href={canonicalUrl} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content={SITE.name} />
+<meta property="og:locale" content={SITE.locale} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content={String(imageWidth)} />
+<meta property="og:image:height" content={String(imageHeight)} />
+<meta property="og:image:alt" content={imageAlt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+{
+  includeSchema && (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  )
+}

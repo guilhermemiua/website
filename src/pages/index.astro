@@ -1,7 +1,7 @@
 ---
 export const prerender = true;
 
-import "../styles/global.css";
+import BaseLayout from "@layouts/BaseLayout.astro";
 import { Picture } from "astro:assets";
 import profileImg from "../images/profile.jpg";
 import theCure from "../images/the-cure.jpg";
@@ -9,175 +9,150 @@ import theSmiths from "../images/the-smiths.jpg";
 import pinkFloyd from "../images/pink-floyd.jpg";
 import myChemicalRomance from "../images/my-chemical-romance.jpg";
 import { Icon } from "astro-icon/components";
-
-import { Font } from "astro:assets";
 import { LINKS } from "@constants/links";
-
-const siteUrl = Astro.site;
-const title = "guilherme eiti";
-const description = "Guilherme Eiti Akita Miua's personal website.";
-const ogImage = new URL("/og-image.jpg", siteUrl).href;
+import { SITE } from "@constants/site";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} lang="en" />
-    <title>{title}</title>
+<BaseLayout title={SITE.name} description={SITE.description}>
+  <section class="flex min-h-screen items-center justify-center bg-[#000]">
+    <div class="container mx-auto flex flex-col items-center justify-center">
+      <Picture
+        src={profileImg}
+        formats={["avif", "webp"]}
+        alt="Guilherme Eiti's profile picture"
+        layout="constrained"
+        width={400}
+        height={400}
+        loading="eager"
+        fetchpriority="high"
+        class="animate-fade-in-down animate-duration-[1.25s] size-48 rounded-full object-cover"
+      />
 
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl.href} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImage} />
-
-    <Font cssVariable="--font-inter" />
-  </head>
-  <body>
-    <section class="flex min-h-screen items-center justify-center bg-[#000]">
-      <div class="container mx-auto flex flex-col items-center justify-center">
-        <Picture
-          src={profileImg}
-          formats={["avif", "webp"]}
-          alt="Guilherme Eiti's profile picture"
-          layout="constrained"
-          width={400}
-          height={400}
-          class="animate-fade-in-down animate-duration-[1.25s] size-48 rounded-full object-cover"
-        />
-
-        <h1
-          class="animate-fade-in-down animate-duration-[1.25s] mt-8 text-3xl font-bold text-[#fff]"
-        >
-          guilherme eiti akita miua
-        </h1>
-
-        <ul
-          class="animate-fade-in-down animate-duration-[1.25s] mt-4 flex items-center justify-center gap-2"
-        >
-          <li>
-            <a
-              href={LINKS.github.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <Icon name={LINKS.github.icon} class="size-7 text-[#fff]" />
-            </a>
-          </li>
-          <li>
-            <a
-              href={LINKS.linkedin.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <Icon name={LINKS.linkedin.icon} class="size-7 text-[#fff]" />
-            </a>
-          </li>
-          <li>
-            <a
-              href={LINKS.spotify.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Spotify"
-            >
-              <Icon name={LINKS.spotify.icon} class="size-7 text-[#fff]" />
-            </a>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section
-      class="mx-auto flex min-h-screen flex-col items-center justify-center bg-[#fff] p-4 text-center"
-    >
-      <p
-        class="timeline-view animate-zoom-in animate-range-brisk text-xl font-medium text-[#000]"
+      <h1
+        class="animate-fade-in-down animate-duration-[1.25s] mt-8 text-3xl font-bold text-[#fff]"
       >
-        90's kid, monster addict, who loves rock'n roll, sports, and world of
-        warcraft.
-      </p>
-    </section>
+        guilherme eiti akita miua
+      </h1>
 
-    <section
-      class="mx-auto flex min-h-screen flex-col items-center justify-center gap-8 bg-[#000] px-4 py-20 lg:px-30 lg:py-30"
-    >
-      <h2
-        class="timeline-view animate-blurred-fade-in animate-range-brisk text-center text-3xl font-bold text-[#fff]"
-      >
-        favorite bands
-      </h2>
-      <div
-        class="timeline-view animate-blurred-fade-in animate-range-[entry_50%_contain_50%] grid grid-cols-1 gap-1 lg:grid-cols-2 lg:gap-1"
-      >
-        <Picture
-          src={theCure}
-          formats={["avif", "webp"]}
-          alt="The Cure"
-          layout="constrained"
-          class="aspect-video w-full object-cover object-top"
-        />
-        <Picture
-          src={pinkFloyd}
-          formats={["avif", "webp"]}
-          alt="Pink Floyd"
-          layout="constrained"
-          class="aspect-video w-full object-cover"
-        />
-        <Picture
-          src={myChemicalRomance}
-          formats={["avif", "webp"]}
-          alt="My Chemical Romance"
-          layout="constrained"
-          class="aspect-video w-full object-cover"
-        />
-        <Picture
-          src={theSmiths}
-          formats={["avif", "webp"]}
-          alt="The Smiths"
-          layout="constrained"
-          class="aspect-video w-full object-cover"
-        />
-      </div>
-    </section>
-
-    <section
-      class="flex min-h-screen items-center justify-center p-4 text-center"
-    >
-      <h2
-        class="timeline-view animate-blurred-fade-in animate-range-[entry_10%_contain_30%] text-xl font-medium italic"
-      >
-        there's a light that never goes out
-      </h2>
-    </section>
-
-    <footer class="bg-[#000] py-8 lg:py-4">
       <ul
-        class="flex flex-col items-center justify-center gap-4 text-white lg:flex-row"
+        class="animate-fade-in-down animate-duration-[1.25s] mt-4 flex items-center justify-center gap-2"
       >
         <li>
-          <a target="_blank" href={LINKS.github.url} rel="noopener noreferrer">
-            github
+          <a
+            href={LINKS.github.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="GitHub"
+          >
+            <Icon name={LINKS.github.icon} class="size-7 text-[#fff]" />
           </a>
         </li>
         <li>
-          <a target="_blank" href={LINKS.linkedin.url} rel="noopener noreferrer"
-            >linkedin</a
+          <a
+            href={LINKS.linkedin.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
+            <Icon name={LINKS.linkedin.icon} class="size-7 text-[#fff]" />
+          </a>
         </li>
         <li>
-          <a target="_blank" href={LINKS.spotify.url} rel="noopener noreferrer"
-            >spotify</a
+          <a
+            href={LINKS.spotify.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Spotify"
           >
+            <Icon name={LINKS.spotify.icon} class="size-7 text-[#fff]" />
+          </a>
         </li>
       </ul>
-    </footer>
-  </body>
-</html>
+    </div>
+  </section>
+
+  <section
+    class="mx-auto flex min-h-screen flex-col items-center justify-center bg-[#fff] p-4 text-center"
+  >
+    <p
+      class="timeline-view animate-zoom-in animate-range-brisk text-xl font-medium text-[#000]"
+    >
+      90's kid, monster addict, who loves rock'n roll, sports, and world of
+      warcraft.
+    </p>
+  </section>
+
+  <section
+    class="mx-auto flex min-h-screen flex-col items-center justify-center gap-8 bg-[#000] px-4 py-20 lg:px-30 lg:py-30"
+  >
+    <h2
+      class="timeline-view animate-blurred-fade-in animate-range-brisk text-center text-3xl font-bold text-[#fff]"
+    >
+      favorite bands
+    </h2>
+    <div
+      class="timeline-view animate-blurred-fade-in animate-range-[entry_50%_contain_50%] grid grid-cols-1 gap-1 lg:grid-cols-2 lg:gap-1"
+    >
+      <Picture
+        src={theCure}
+        formats={["avif", "webp"]}
+        alt="The Cure"
+        layout="constrained"
+        class="aspect-video w-full object-cover object-top"
+      />
+      <Picture
+        src={pinkFloyd}
+        formats={["avif", "webp"]}
+        alt="Pink Floyd"
+        layout="constrained"
+        class="aspect-video w-full object-cover"
+      />
+      <Picture
+        src={myChemicalRomance}
+        formats={["avif", "webp"]}
+        alt="My Chemical Romance"
+        layout="constrained"
+        class="aspect-video w-full object-cover"
+      />
+      <Picture
+        src={theSmiths}
+        formats={["avif", "webp"]}
+        alt="The Smiths"
+        layout="constrained"
+        class="aspect-video w-full object-cover"
+      />
+    </div>
+  </section>
+
+  <section
+    class="flex min-h-screen items-center justify-center p-4 text-center"
+  >
+    <blockquote
+      class="timeline-view animate-blurred-fade-in animate-range-[entry_10%_contain_30%] text-xl font-medium italic"
+    >
+      there's a light that never goes out
+    </blockquote>
+  </section>
+
+  <footer class="bg-[#000] py-8 lg:py-4">
+    <ul
+      class="flex flex-col items-center justify-center gap-4 text-white lg:flex-row"
+    >
+      <li>
+        <a target="_blank" href={LINKS.github.url} rel="noopener noreferrer">
+          github
+        </a>
+      </li>
+      <li>
+        <a target="_blank" href={LINKS.linkedin.url} rel="noopener noreferrer"
+          >linkedin</a
+        >
+      </li>
+      <li>
+        <a target="_blank" href={LINKS.spotify.url} rel="noopener noreferrer"
+          >spotify</a
+        >
+      </li>
+    </ul>
+  </footer>
+</BaseLayout>
